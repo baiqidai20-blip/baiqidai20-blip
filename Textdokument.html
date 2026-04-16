@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f5f7fc 0%, #e9eef4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 1.5rem;
+        }
+
+        /* 卡片容器 */
+        .card {
+            max-width: 680px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(0px);
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 28px 40px -16px rgba(0, 0, 0, 0.25);
+        }
+
+        /* 头部装饰 */
+        .header {
+            background: #ffffff;
+            padding: 1.8rem 2rem 1rem 2rem;
+            border-bottom: 1px solid #eef2f8;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #1e40af;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1f2b3c, #2c3e4e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub {
+            color: #5b6e8c;
+            font-size: 0.95rem;
+            border-left: 3px solid #3b82f6;
+            padding-left: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 链接列表区域 */
+        .link-list {
+            padding: 1.8rem 2rem 2rem 2rem;
+        }
+
+        .link-item {
+            background: #f9fafc;
+            border-radius: 1.2rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+            border: 1px solid #edf2f7;
+        }
+
+        .link-item:hover {
+            background: #ffffff;
+            border-color: #cbdff2;
+            box-shadow: 0 6px 12px -8px rgba(0, 0, 0, 0.08);
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem 1.4rem;
+            text-decoration: none;
+            color: #1e293b;
+        }
+
+        .link-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .link-icon {
+            background: #eef2ff;
+            width: 38px;
+            height: 38px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: background 0.2s;
+        }
+
+        .link-text {
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: -0.2px;
+        }
+
+        .link-url {
+            font-size: 0.7rem;
+            font-family: monospace;
+            color: #5b6e8c;
+            background: #eef2f8;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            word-break: break-all;
+        }
+
+        .arrow {
+            color: #6c86a3;
+            font-size: 1.2rem;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .link-card:hover .arrow {
+            transform: translateX(4px);
+            color: #2563eb;
+        }
+
+        /* 脚注 */
+        .footer {
+            background: #f8fafd;
+            border-top: 1px solid #eef2f8;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6c86a3;
+        }
+
+        @media (max-width: 520px) {
+            .header {
+                padding: 1.3rem 1.2rem 0.8rem 1.2rem;
+            }
+            .link-list {
+                padding: 1.2rem;
+            }
+            .link-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .arrow {
+                align-self: flex-end;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="badge">📂 资源导航</div>
+            <h1>测试</h1>
+            <div class="sub">公开链接 · 即点即用</div>
+        </div>
+        
+        <div class="link-list">
+            <!-- 百度示例链接 - 完全公开，无需密码 -->
+            <div class="link-item">
+                <a href="https://www.baidu.com" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <div class="link-info">
+                        <span class="link-icon">🔍</span>
+                        <div>
+                            <div class="link-text">百度一下</div>
+                            <div class="link-url">baidu.com</div>
+                        </div>
+                    </div>
+                    <span class="arrow">➡️</span>
+                </a>
+            </div>
+
+            <!-- 你可以在这里继续添加更多链接，只需复制上面的 .link-item 块即可 -->
+            <!-- 示例：第二个链接（占位说明，可删除） 
+            <div class="link-item">
+                <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <div class="link-info">
+                        <span class="link-icon">📄</span>
+                        <div>
+                            <div class="link-text">示例文档</div>
+                            <div class="link-url">example.com/docs</div>
+                        </div>
+                    </div>
+                    <span class="arrow">➡️</span>
+                </a>
+            </div>
+            -->
+        </div>
+
+        <div class="footer">
+            🌐 所有链接均可直接访问 · 无需密码
+        </div>
+    </div>
+</body>
+</html>
